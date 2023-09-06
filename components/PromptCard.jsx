@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
+import ReactMarkdown from 'react-markdown';
 
 const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
   const { data: session } = useSession();
@@ -65,7 +66,14 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
         </div>
       </div>
 
-      <p className='my-4 font-satoshi text-sm text-gray-700'>{post.prompt}</p>
+      {/* <p className='my-4 font-satoshi text-sm text-gray-700'>
+        <ReactMarkdown>
+          {post.prompt}
+        </ReactMarkdown>
+      </p> */}
+      <ReactMarkdown className='my-4 font-satoshi text-sm text-gray-700'>
+        {post.prompt}
+      </ReactMarkdown>
       <p
         className='font-inter text-sm blue_gradient cursor-pointer'
         onClick={() => handleTagClick && handleTagClick(post.tag)}
