@@ -9,7 +9,7 @@ const Home = () => (
       PromptShare is a specialized platform for sharing and discovering well-crafted prompts.
     </p>
 
-    {/* <Feed /> */}
+    <Feed />
   </section>
 );
 
